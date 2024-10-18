@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS Trackify_db;
+CREATE DATABASE "Trackify_db";
+
