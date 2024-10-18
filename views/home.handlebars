@@ -1,96 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homepage</title>
-  <link rel="stylesheet" href="/css/styles.css">
-  
-</head>
-<body>
+<div class="main-content">
+    <h1>Welcome back, {{user.name}}!</h1>
 
-  <main>
-    <div class = "row">
-      <div class = "col">
-      <h1>Welcome to the Career Portal</h1>
-      <p>Explore various career opportunities and manage your career profile.</p>
+    <h2>Your Careers</h2>
     {{#if careers.length}}
-      <section class="careers">
-        <h2>Your Careers</h2>
-        <ul>
-          {{#each careers}}
-            <li>{{this.jobTitle}} - {{this.description}}</li>
-          {{/each}}
-        </ul>
-      </section>
+      <ul>
+        {{#each careers}}
+          <li>{{this.title}} at {{this.company}} - {{this.status}}</li>
+        {{/each}}
+      </ul>
     {{else}}
-      <section class="no-careers">
-        <h2>No careers found</h2>
-        <p>You have not added any careers yet. Start by creating a new career entry!</p>
-      </section>
+      <p>No career data found.</p>
     {{/if}}
 
-    </div>
-    <div class = "col">
-      <h1>Welcome to the Vacation Portal</h1>
-      <p>Explore various vacation sites and manage your vacation plans.</p>
+    <h2>Your Vacations</h2>
     {{#if vacations.length}}
-      <section class="vacation">
-        <h2>Your Vacations</h2>
-        <ul>
-          {{#each vacations}}
-            <li>{{this.destination}}</li>
-          {{/each}}
-        </ul>
-      </section>
+      <ul>
+        {{#each vacations}}
+          <li>{{this.destination}} from {{this.startDate}} to {{this.endDate}}</li>
+        {{/each}}
+      </ul>
     {{else}}
-      <section class="no-vacation">
-        <h2>No Vacations found</h2>
-        <p>You have not added any vacations yet. Start by creating a new vacation entry!</p>
-      </section>
+      <p>No vacations found.</p>
     {{/if}}
 
-    </div>
-    <div class = "col">
-    <h1>Welcome to the Shopping List Portal</h1>
-    <p>Generate a shopping list and keep track of necessary shopping expenses.</p>
-    {{#if shoppingLists.length}}
-      <section class="shoppingList">
-        <h2>Your Shopping Lists</h2>
-        <ul>
-          {{#each shoppingLists}}
-            <li>{{this.item}} - {{this.quantity}}</li>
-          {{/each}}
-        </ul>
-      </section>
-    {{else}}
-      <section class="no-shoppingList">
-        <h2>No Shopping Lists found</h2>
-        <p>You have not added any shopping lists yet. Start by creating a new shopping list entry!</p>
-      </section>
-    {{/if}}
-
-    </div>
-    <div class = "col">
-    <h1>Welcome to the Events Portal</h1>
-    <p>Generate a list of upcoming events and keep track of important dates.</p>
+    <h2>Your Events</h2>
     {{#if events.length}}
-      <section class="events">
-        <h2>Your Events</h2>
-        <ul>
-          {{#each events}}
-            <li>{{this.title}} - {{this.description}}</li>
-          {{/each}}
-        </ul>
-      </section>
+      <ul>
+        {{#each events}}
+          <li>{{this.title}} on {{this.date}}</li>
+        {{/each}}
+      </ul>
     {{else}}
-      <section class="no-events">
-        <h2>No Events found</h2>
-        <p>You have not added any events yet. Start by creating a new entry for upcoming events!</p>
-      </section>
+      <p>No events found.</p>
     {{/if}}
-    </div>
-    </div>
-  </main>
-</body>
-</html>
+
+    <h2>Your Shopping Lists</h2>
+    {{#if shoppingLists.length}}
+      <ul>
+        {{#each shoppingLists}}
+          <li>{{this.item}} - {{this.quantity}}</li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No items in your shopping list.</p>
+    {{/if}}
+</div>
+
+<style>
+  /* Sidebar styles */
+  .sidebar {
+    position: fixed; /* Fix the sidebar to the left of the page */
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh; /* Full height */
+    background-color: #29231D;
+    color: #FEFBF6;
+    padding: 20px;
+    overflow-y: auto; /* Make it scrollable if content exceeds */
+  }
+
+  /* Main content styles */
+  .main-content {
+    margin-left: 270px; /* Offset the main content to make space for the sidebar */
+    padding: 20px;
+    background-color: #FEFBF6;
+    min-height: 100vh;
+  }
+
+  /* Styling for list sections */
+  h1, h2 {
+    color: #29231D;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  ul li {
+    background-color: #97AFAF;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: #29231D;
+  }
+
+  /* Responsive styling */
+  @media screen and (max-width: 768px) {
+    .sidebar {
+      width: 100%; /* Make sidebar full width on smaller screens */
+      height: auto;
+      position: relative;
+    }
+
+    .main-content {
+      margin-left: 0; /* Remove the margin on small screens */
+    }
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const sidebarToggle = document.querySelector('.sidebar-toggle'); // Assuming you have a sidebar toggle button
+    const sidebar = document.querySelector('.sidebar');
+
+    sidebarToggle.addEventListener('click', function() {
+      sidebar.classList.toggle('open');
+    });
+  });
+</script>
