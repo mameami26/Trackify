@@ -43,24 +43,25 @@ router.get('/', async (req, res) => {
 // Login route
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    return res.redirect('/');
+    res.redirect('/');
+    return;
   }
   res.render('login');
+});
+
+// // Logout route
+router.get('/logout', (req, res) => {
+  res.redirect('login');
 });
 
 // Register route
 router.get('/register', (req, res) => {
   if (req.session.logged_in) {
-    return res.redirect('/');
+    res.redirect('/');
+    return;
   }
   res.render('register');
 });
-
-// Logout route
-router.get('/logout', (req, res) => {
-  req.session.destroy(() => {
-    res.redirect('/login');
-  });
 
   // User profile route
 router.get('/profile', withAuth, async (req, res) => {
@@ -133,7 +134,6 @@ router.get('/shopping', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
 });
 
 module.exports = router;

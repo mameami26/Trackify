@@ -1,6 +1,168 @@
+
 <div class="welcome-page">
-  <h1>Welcome to Trackify</h1>
-  <p>Your personal task management and productivity tool!</p>
-  <a href="/login">Login</a>
-  <a href="/register">Sign Up</a>
+  <div class="welcome-content">
+    <h1>Welcome to Trackify</h1>
+    <img src="./trackify-high-resolution-logo.png" alt="Trackify Logo">
+    <div class="cta-buttons">
+      <a href="/login" class="btn">Login</a>
+      <a href="/register" class="btn btn-secondary">Sign Up</a>
+    </div>
+  </div>
 </div>
+
+<div class="about-section">
+  <h2>About Trackify</h2>
+  <div class="features-grid">
+    <div class="feature">
+      <h3>Manage Events</h3>
+      <p>Trackify helps you organize events, meetings, and deadlines seamlessly.</p>
+    </div>
+    <div class="feature">
+      <h3>Vacation Planner</h3>
+      <p>Plan your vacations, set itineraries, and enjoy stress-free travel.</p>
+    </div>
+    <div class="feature">
+      <h3>Career Goals</h3>
+      <p>Keep track of your career progress and set clear milestones.</p>
+    </div>
+    <div class="feature">
+      <h3>Shopping Lists</h3>
+      <p>Maintain and organize your shopping lists for everyday needs.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Full-screen background image */
+  body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('/path/to/background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+  }
+
+  /* Navbar styles */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Transparent background */
+  }
+
+  .navbar .logo img {
+    width: 120px;
+  }
+
+  .navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+
+  .navbar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+  }
+
+  .navbar nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+  }
+
+  /* Welcome page content */
+  .welcome-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5); /* Add slight overlay */
+  }
+
+  .welcome-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+  }
+
+  .welcome-content p {
+    font-size: 1.4em;
+    margin-bottom: 40px;
+  }
+
+  .cta-buttons a {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #29231D;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .cta-buttons a:hover {
+    background-color: #97AFAF;
+    color: #29231D;
+  }
+
+  .btn-secondary {
+    background-color: #97AFAF;
+    color: #29231D;
+  }
+
+  .btn-secondary:hover {
+    background-color: #29231D;
+    color: #fff;
+  }
+
+  /* About Section */
+  .about-section {
+    background-color: #fff;
+    padding: 50px 20px;
+    color: #29231D;
+    text-align: center;
+  }
+
+  .about-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+  }
+
+  /* Features grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .feature {
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .feature h3 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    color: #29231D;
+  }
+
+  .feature p {
+    font-size: 1.1em;
+    color: #555;
+  }
+</style>
