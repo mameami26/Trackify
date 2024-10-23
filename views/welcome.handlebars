@@ -1,12 +1,39 @@
 
 <div class="welcome-page">
   <div class="welcome-content">
+    <div>
     <h1>Welcome to Trackify</h1>
-    <img src="./trackify-high-resolution-logo.png" alt="Trackify Logo">
-    <div class="cta-buttons">
-      <a href="/login" class="btn">Login</a>
-      <a href="/register" class="btn btn-secondary">Sign Up</a>
     </div>
+    <!-- Trigger Buttons -->
+<button id="loginBtn" class="btn">Login</button>
+<button id="registerBtn" class="btn">Register</button>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Login</h2>
+    <form id="login-form">
+      <input type="text" id="username-login" name="username" placeholder="Username" required>
+      <input type="password" id="password-login" name="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
+
+<!-- Register Modal -->
+<div id="registerModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Register</h2>
+    <form id="register-form">
+      <input type="text" id="username-register" name="username" placeholder="Username" required>
+      <input type="email" id="email-register" name="email" placeholder="Email" required>
+      <input type="password" id="password-register" name="password" placeholder="Password" required>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+</div>
   </div>
 </div>
 
@@ -43,90 +70,21 @@
     background-size: cover;
     color: #fff;
   }
-
-  /* Navbar styles */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.6); /* Transparent background */
-  }
-
-  .navbar .logo img {
-    width: 120px;
-  }
-
-  .navbar nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-  }
-
-  .navbar nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 5px 10px;
-  }
-
-  .navbar nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-  }
-
   /* Welcome page content */
   .welcome-page {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 50vh;
     text-align: center;
-    padding: 20px;
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.5); /* Add slight overlay */
+    background-color: rgba(92, 87, 87, 0.5); /* Add slight overlay */
   }
 
   .welcome-content h1 {
     font-size: 3.5em;
     margin-bottom: 20px;
   }
-
-  .welcome-content p {
-    font-size: 1.4em;
-    margin-bottom: 40px;
-  }
-
-  .cta-buttons a {
-    display: inline-block;
-    margin: 10px;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    border-radius: 5px;
-    text-decoration: none;
-    color: #fff;
-    background-color: #29231D;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  .cta-buttons a:hover {
-    background-color: #97AFAF;
-    color: #29231D;
-  }
-
-  .btn-secondary {
-    background-color: #97AFAF;
-    color: #29231D;
-  }
-
-  .btn-secondary:hover {
-    background-color: #29231D;
-    color: #fff;
-  }
-
   /* About Section */
   .about-section {
     background-color: #fff;
@@ -165,4 +123,70 @@
     font-size: 1.1em;
     color: #555;
   }
+  /* Basic modal styling */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Black background with transparency */
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px; /* Limit modal width */
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  form input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  form button {
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+  }
+.btn {
+  background-color: #29231D;
+  border: none;
+  color: white;
+  padding: 20px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 20px;;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.btn:hover {
+  background-color: #555;
+}
+ 
 </style>
