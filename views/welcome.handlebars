@@ -1,39 +1,10 @@
 
 <div class="welcome-page">
   <div class="welcome-content">
-    <div>
     <h1>Welcome to Trackify</h1>
-    </div>
     <!-- Trigger Buttons -->
-<button id="loginBtn" class="btn">Login</button>
-<button id="registerBtn" class="btn">Register</button>
-
-<!-- Login Modal -->
-<div id="loginModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Login</h2>
-    <form id="login-form">
-      <input type="text" id="username-login" name="username" placeholder="Username" required>
-      <input type="password" id="password-login" name="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
-  </div>
-</div>
-
-<!-- Register Modal -->
-<div id="registerModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Register</h2>
-    <form id="register-form">
-      <input type="text" id="username-register" name="username" placeholder="Username" required>
-      <input type="email" id="email-register" name="email" placeholder="Email" required>
-      <input type="password" id="password-register" name="password" placeholder="Password" required>
-      <button type="submit">Register</button>
-    </form>
-  </div>
-</div>
+    <button id="loginBtn" class="btn">Login</button>
+    <button id="registerBtn" class="btn">Register</button>
   </div>
 </div>
 
@@ -191,87 +162,11 @@
  
 </style>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Get the modal elements
-    const loginModal = document.getElementById('loginModal');
-    const registerModal = document.getElementById('registerModal');
-    
-    // Get the button elements
-    const loginBtn = document.getElementById('loginBtn');
-    const registerBtn = document.getElementById('registerBtn');
-    
-    // Get the close elements
-    const closeButtons = document.querySelectorAll('.close');
-    
-    // Show login modal
-    loginBtn.addEventListener('click', () => {
-      loginModal.style.display = 'block';
-    });
-    
-    // Show register modal
-    registerBtn.addEventListener('click', () => {
-      registerModal.style.display = 'block';
-    });
-    
-    // Close modal when clicking on the 'X' button
-    closeButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        loginModal.style.display = 'none';
-        registerModal.style.display = 'none';
-      });
-    });
-    
-    // Close modal when clicking outside the modal
-    window.addEventListener('click', (event) => {
-      if (event.target == loginModal) {
-        loginModal.style.display = 'none';
-      } else if (event.target == registerModal) {
-        registerModal.style.display = 'none';
-      }
-    });
-    
-    // Handle form submissions using Fetch API (this example focuses on login)
-    document.getElementById('login-form').addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const username = document.querySelector('#username-login').value.trim();
-      const password = document.querySelector('#password-login').value.trim();
+  document.getElementById('loginBtn').onclick = function () {
+  window.location.href = '/login'; // Redirects to login.handlebars
+};
 
-      if (username && password) {
-        const response = await fetch('/api/users/login', {
-          method: 'POST',
-          body: JSON.stringify({ username, password }),
-          headers: { 'Content-Type': 'application/json' },
-        });
-
-        if (response.ok) {
-          window.location.replace('/dashboard');
-        } else {
-          alert('Failed to log in');
-        }
-      }
-    });
-
-    // Handle registration form similarly
-    document.getElementById('register-form').addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const username = document.querySelector('#username-register').value.trim();
-      const email = document.querySelector('#email-register').value.trim();
-      const password = document.querySelector('#password-register').value.trim();
-
-      if (username && email && password) {
-        const response = await fetch('/controllers/api/userRoutes.js', {
-          method: 'POST',
-          body: JSON.stringify({ username, email, password }),
-          headers: { 'Content-Type': 'application/json' },
-        });
-
-        if (response.ok) {
-          window.location.replace('/dashboard');
-        } else {
-          alert('Failed to register');
-        }
-      }
-    });
-  });
+document.getElementById('registerBtn').onclick = function () {
+  window.location.href = '/register'; // Redirects to register.handlebars
+};
 </script>
-

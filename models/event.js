@@ -25,11 +25,9 @@ Event.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user_db',  // Corrected table name
+        model: 'user_db',
         key: 'id',
       },
-      onDelete: 'CASCADE',  // Optional, depending on your use case
-      onUpdate: 'CASCADE',  // Optional, depending on your use case
     },
   },
   {
@@ -37,7 +35,7 @@ Event.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'event',
+    modelName: 'Event',
   }
 );
 
